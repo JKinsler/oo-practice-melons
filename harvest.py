@@ -96,10 +96,28 @@ class Melon(object):
     # Fill in the rest
     # Needs __init__ and is_sellable methods
 
+    def __init__(self, melon_type, shape_rating, color_rating, harvest_from_field, harvest_by):
+        self.melon_type = melon_type
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.harvest_from_field = harvest_from_field
+        self.harvest_by = harvest_by
+
+    def is_sellable(self, shape_rating, color_rating, harvest_from_field):
+
+        if shape_rating > 5 and color_rating > 5 and harvest_from_field != 3:
+            return True
+        
+        return False
+
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
-
+    melon_codes_dict = make_melon_type_lookup(melon_types)
     # Fill in the rest
+    # access the value in the dictionary for each item in the melon_type list
+    # compare if the new melons are in the dictionary
+    # if not, then add the new melons to the melon type list
+    
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
@@ -116,4 +134,6 @@ print_pairing_info(melon_list)
 # melon = MelonType("a", "b", "c", "d", "e", "f")
 # pair = melon.pairings
 
-make_melon_type_lookup(melon_list)
+codes_melon = make_melon_type_lookup(melon_list)
+print(codes_melon)
+print(codes_melon["cas"].color) 
