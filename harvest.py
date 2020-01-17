@@ -38,11 +38,21 @@ def make_melon_types():
     all_melon_types = []
 
     # Fill in the rest
+    muskmelon = MelonType("musk", "1998", "green", True, True, "muskmelon")
+    casaba = MelonType("cas", "2003", "orange", False, False, "casaba")
+    crenshaw = MelonType("cren", "1996", "green", False, False, "crenshaw")
+    yellow_watermelon = MelonType("yw", "2013", "yellow", False, True, "Yellow Watermelon")
 
-    all_melon_types.append(muskmelon.name)
-    all_melon_types.append(casaba.name)
-    all_melon_types.append(crenshaw.name)
-    all_melon_types.append(yellow_watermelon.name)
+    muskmelon.add_pairing('mint')
+    casaba.add_pairing("strawberries")
+    casaba.add_pairing("mint")
+    crenshaw.add_pairing("proscuitto")
+    yellow_watermelon.add_pairing("ice cream")
+
+    all_melon_types.append(muskmelon)
+    all_melon_types.append(casaba)
+    all_melon_types.append(crenshaw)
+    all_melon_types.append(yellow_watermelon)
 
 
     # print(casaba.pairings)
@@ -57,9 +67,12 @@ def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
     # Fill in the rest
-    # for melon in melon_types:
-    #     melon = MelonType()
-    #     print(f"{melon} pairs with n/ -{melon.pairings}")
+    for melon in melon_types:
+        print(f"{melon.name} pairs with")
+        for index in range(len(melon.pairings)):
+            print(f"-{melon.pairings[index]}")
+   
+    # print(type(melon.pairings))
 
 
 def make_melon_type_lookup(melon_types):
@@ -88,19 +101,12 @@ def get_sellability_report(melons):
     # Fill in the rest 
 
 
-muskmelon = MelonType("musk", "1998", "green", True, True, "muskmelon")
-casaba = MelonType("cas", "2003", "orange", False, False, "casaba")
-crenshaw = MelonType("cren", "1996", "green", False, False, "crenshaw")
-yellow_watermelon = MelonType("yw", "2013", "yellow", False, True, "Yellow Watermelon")
 
-muskmelon.add_pairing('mint')
-casaba.add_pairing("strawberries")
-casaba.add_pairing("mint")
-crenshaw.add_pairing("proscuitto")
-yellow_watermelon.add_pairing("ice cream")
 
 melon_list = make_melon_types()
-#print(print_pairing_info(melon_list))
+# print(melon_list)
+print_pairing_info(melon_list)
 
-for melon in melon_list:
-    print(f"{melon} pairs with n/ -{melon.pairings}")
+# melon = MelonType("a", "b", "c", "d", "e", "f")
+# pair = melon.pairings
+
